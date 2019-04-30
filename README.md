@@ -35,12 +35,23 @@ The source code for this project is quite simple.  It's pretty much the unit tes
 1. To do so, you will need to:
     1. Change the [build_pipeline.groovy](docker/dsl/build_pipeline.groovy) to use your repository
     1. Modify your [Jenkinsfile](Jenkinsfile) appropriately. 
+    1. To test your changes, you can rebuild the docker image running `./build-jenkins-image.sh` and then start your jenkins instance running `./run-jenkins-images.sh`
 
 ## Hints
 1. I created a [run-jenkins.sh](run-jenkins.sh) script that will start up jenkins for you if you'd like.  You can view your Jenkins by opening Firefox within your workspace to [http://localhost:8080](http://localhost:8080).
 1. If your repository is marked private, you might get an error when running your `build-pipeline` job.  To fix this, you can [add your credentials](https://jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials) and select them in the SCM section of the  [build-pipeline job configuration](http://localhost:8080/job/build-pipeline-job/configure).
 1. The [DSL API](https://jenkinsci.github.io/job-dsl-plugin/) is available online.
 1. There is a [Pipeline Syntax](http://localhost:8080/job/build-pipeline-job/pipeline-syntax/) page to help you out too!.
+1. Note the branch specification in [docker/dsl/build_pipeline.groovy](docker/dsl/build_pipeline.groovy).  You will likely not be working on the master branch.
+1. To test your changes locally before pushing them to GitHub, you can use the path to your repo as your git URLs in your [docker/dsl/build_pipeline.groovy](docker/dsl/build_pipeline.groovy) and [Jenkinsfile](Jenkinsfile).  So instead of saying:
+```
+   def repo = 'https://github.com/jschmersal-cscc/special-topics-labs-ci'
+```
+you can say:
+```
+   def repo = '/path/to/your/copy/of/special-topics-labs-ci'
+```
+Note that you should change this to be your github repo url before finally pushing it to github for testing. 
 
 ## Submitting Your Work
 
