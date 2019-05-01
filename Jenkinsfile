@@ -20,7 +20,6 @@ node {
             steps {
                 sh './gradlew check'
 
-                echo "Hello Jeremy"
             }
         }
     }
