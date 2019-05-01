@@ -2,12 +2,40 @@
 node {
   stage('checkout sources') {
         // You should change this to be the appropriate thing
-        git url: 'https://github.com/jschmersal-cscc/special-topics-labs-quality'
+        git url: 'https://github.com/vibhashah/specila-topics-lab6-ci/tree/Vibha-ci'
   }
 
-  stage('Build') {
+    stages {
+        stage('Build') {
+
+        withMaven/ (maven: 'maven3') {
+          sh "mvn package"
+        }
+            steps {
+                sh './gradlew build'
+                echo "Hello World!!!"
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './gradlew check'
+
+                echo "Hello Jeremy"
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
+    }
+
+
+  //stage('Build') {
     // you should build this repo with a maven build step here
-    echo "hello"
-  }
+    //echo "hello"
+  //}
   // you should add a test report here
 }
