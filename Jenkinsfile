@@ -8,33 +8,21 @@ node {
     stages {
         stage('Build') {
 
-        withMaven/ (maven: 'maven3') {
+        withMaven (maven: 'maven3') {
           sh "mvn package"
+          echo "Hello World"
         }
-            steps {
-                sh './gradlew build'
-                echo "Hello World!!!"
-            }
-        }
-        stage('Test') {
-            steps {
-                sh './gradlew check'
 
-            }
         }
+
     }
 
     post {
         always {
             archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            junit 'build/reports/**/*.xml'
+            junit 'target/surefire-reports/*.SampleJUnitTest.txt'
         }
     }
 
 
-  //stage('Build') {
-    // you should build this repo with a maven build step here
-    //echo "hello"
-  //}
-  // you should add a test report here
 }
