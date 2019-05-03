@@ -16,13 +16,10 @@ node {
         }
 
     }
-
-    post {
-        always {
-            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            junit 'target/surefire-reports/*.SampleJUnitTest/*.xml'
-        }
-    }
+        finally {
+                archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+                junit 'target/surefire-reports/*.SampleJUnitTest/*.xml'
+            }
 
 
 }
