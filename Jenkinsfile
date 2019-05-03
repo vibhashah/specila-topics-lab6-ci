@@ -2,7 +2,7 @@
 node {
   stage('checkout sources') {
         // You should change this to be the appropriate thing
-        git url: 'https://github.com/vibhashah/specila-topics-lab6-ci/tree/Vibha-ci'
+        git url:'https://github.com/vibhashah/specila-topics-lab6-ci/tree/Vibha-ci'
   }
 
     stages {
