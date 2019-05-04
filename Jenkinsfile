@@ -7,7 +7,7 @@ node {
   }
 
     stages {
-        stage('Build') {
+        stage('build') {
 
         withMaven (maven: 'maven3') {
           sh "mvn package"
