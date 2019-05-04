@@ -17,15 +17,6 @@ node {
         }
 
     }
-      try {
-            stage('Test') {
-                sh './gradlew check'
-            }
-        }
-
-        finally {
-               junit 'target/surefire-reports/*.SampleJUnitTest/*.xml'
-            }
 
 
 }
