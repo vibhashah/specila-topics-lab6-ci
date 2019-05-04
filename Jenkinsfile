@@ -17,8 +17,7 @@ node {
 
     }
         finally {
-                archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-                junit 'target/surefire-reports/*.SampleJUnitTest/*.xml'
+               junit 'target/surefire-reports/*.SampleJUnitTest/*.xml'
             }
 
 
