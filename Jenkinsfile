@@ -15,9 +15,7 @@ try {
         }
 
     }
-    catch {
-       sh "Ex"
-    }
+    
     finally{
 
       junit 'target/surefile-reports/*.SampleJUnit.xml'
