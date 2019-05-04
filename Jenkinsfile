@@ -5,9 +5,7 @@ node {
         // You should change this to be the appropriate thing
         git url:'https://github.com/vibhashah/specila-topics-lab6-ci.git'
   }
-
-    stages {
-        stage('build') {
+    stage('build') {
 
         withMaven (maven: 'maven3') {
           sh "mvn package"
@@ -16,7 +14,7 @@ node {
 
         }
 
-    }
+    
 
 
 }
