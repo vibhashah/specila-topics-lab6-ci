@@ -1,5 +1,6 @@
 
 node {
+    try{
   stage('checkout sources') {
         // You should change this to be the appropriate thing
         git url:'https://github.com/vibhashah/specila-topics-lab6-ci/tree/Vibha-ci'
@@ -15,6 +16,7 @@ node {
 
         }
 
+    }
     }
         finally {
                junit 'target/surefire-reports/*.SampleJUnitTest/*.xml'
