@@ -15,10 +15,10 @@ try {
         }
 
     }
-    
+
     finally{
 
-      junit 'target/surefile-reports/*.SampleJUnit.xml'
+      junit 'target/surefire-reports/*.SampleJUnit.xml'
     }
 
 
