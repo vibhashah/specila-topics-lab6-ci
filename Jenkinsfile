@@ -18,7 +18,7 @@ try {
 
     finally{
 
-      junit 'target/surefire-reports/*.SampleJUnit.xml'
+      junit 'target/surefire-reports/*.SampleJUnitTest.xml'
     }
 
 
