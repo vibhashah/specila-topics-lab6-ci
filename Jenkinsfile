@@ -1,13 +1,25 @@
 
 node {
+try {
   stage('checkout sources') {
         // You should change this to be the appropriate thing
-        git url: 'https://github.com/jschmersal-cscc/special-topics-labs-quality'
+        git url:'https://github.com/vibhashah/specila-topics-lab6-ci.git'
   }
+    stage('build') {
 
-  stage('Build') {
-    // you should build this repo with a maven build step here
-    echo "hello"
-  }
-  // you should add a test report here
+        withMaven (maven: 'maven3') {
+          sh "mvn package"
+          echo "Hello World"
+        }
+
+        }
+
+    }
+
+    finally{
+
+      junit 'target/surefire-reports/*.*.xml'
+    }
+
+
 }
